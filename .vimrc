@@ -1,6 +1,8 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
+syntax on
+
 
 set nocompatible
 
@@ -18,7 +20,7 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set visualbell
-set cursorline
+"set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -52,7 +54,7 @@ vnoremap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumns=85
+"set colorcolumn=85
 
 " Show invisible characters
 set list
