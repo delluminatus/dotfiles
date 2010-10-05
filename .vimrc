@@ -57,8 +57,8 @@ set formatoptions=qrn1
 "set colorcolumn=85
 
 " Show invisible characters
-set list
-set listchars=tab:▸\ ,eol:¬
+"set list
+"set listchars=tab:▸\ ,eol:¬
 
 " Fix up-down movement
 nnoremap j gj
