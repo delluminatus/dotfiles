@@ -6,7 +6,7 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
-require("eminent")
+--require("eminent")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
@@ -23,6 +23,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
+
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
@@ -65,7 +66,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                   }
                         })
 
-mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
 -- }}}
 
