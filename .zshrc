@@ -12,7 +12,7 @@ EDITOR="vim"
 bindkey -v # not needed, but just in case!
 
 #For J programming language
-PATH=$PATH:/home/luke/j701
+PATH=$PATH:/home/luke/j701/bin
 
 #History
 HISTFILE=~/.zhistory
