@@ -11,6 +11,9 @@ PS1='[%n@%m %~]%$ '
 EDITOR="vim"
 bindkey -v # not needed, but just in case!
 
+#For J programming language
+PATH=$PATH:/home/luke/j701
+
 #History
 HISTFILE=~/.zhistory
 HISTSIZE=1000
