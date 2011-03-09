@@ -1,10 +1,6 @@
-# Created by newuser for 4.3.10
-#
-
 #Aliases
 alias -g ...='../..'
 alias -g ....="../../.."
-alias ut="urxvt-tabbed"
 
 PS1='[%n@%m %~]%$ '
 
@@ -22,12 +18,12 @@ setopt incappendhistory
 unsetopt histsavenodups
 setopt histexpiredupsfirst
 
-# Cache completions
+#Cache completions
+>>>>>>> 0055402bd0afce9cf0368aff9fbce2347522c363
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $ZDOTDIR/cache
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
+<<<<<<< HEAD
 
-# Add Ack to path
-PATH=$PATH:/usr/lib/perl5/vendor_perl/bin
