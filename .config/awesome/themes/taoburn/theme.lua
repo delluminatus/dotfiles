@@ -11,7 +11,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg /home/luke/.config/awesome/themes/taoburn/background.jpg" }
+theme.wallpaper_cmd = { "awsetbg -f -u feh /home/luke/.config/awesome/themes/taoburn/background.jpg" }
 -- }}}
 
 -- {{{ Styles
