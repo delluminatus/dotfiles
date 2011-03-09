@@ -19,11 +19,9 @@ unsetopt histsavenodups
 setopt histexpiredupsfirst
 
 #Cache completions
->>>>>>> 0055402bd0afce9cf0368aff9fbce2347522c363
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $ZDOTDIR/cache
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
-<<<<<<< HEAD
 
