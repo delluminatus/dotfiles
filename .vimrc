@@ -28,6 +28,8 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 
+set statusline=%t\ %y\ (%{&ff})\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %l/%L\ (%p%%) 
+
 ""
 "" PLUGIN REF/NOTES
 ""
