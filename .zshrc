@@ -21,6 +21,9 @@ setopt incappendhistory
 unsetopt histsavenodups
 setopt histexpiredupsfirst
 
+autoload -U compinit
+compinit
+
 #Cache completions
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $ZDOTDIR/cache
