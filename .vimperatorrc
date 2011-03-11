@@ -1,0 +1,14 @@
+"2.3.1 (created: 2010/04/07 18:25:13)
+
+
+" Keybinds
+
+" set leader
+let mapleader = ","
+
+map <Leader>. <C-o>
+map <Leader>/ <C-i>
+
+" pinboard support?
+
+"autocmd -js BookmarkAdd .* void(t=open('https://pinboard.in/add?later=yes&noui=yes&jump=close&url='+encodeURIComponent(url)+'&title='+encodeURIComponent(title),'Pinboard','toolbar=no,width=100,height=100'));t.blur();
