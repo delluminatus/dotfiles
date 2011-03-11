@@ -6,11 +6,16 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+
+-- Modular widgets
 require("vicious")
+
+-- Hide unused tags
+require("eminent")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/luke/.config/awesome/themes/taoburn/theme.lua")
+beautiful.init("/home/luke/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -52,19 +57,63 @@ end
 -- }}}
 
 -- {{{ Widget Definitions
+--
 
--- Memory widget
+function color_predicate (val, warn, critical)
+    if val > critical then
+        return "red"
+    elseif val > warn then
+        return "orange"
+    else
+        return "white"
+    end
+end
+
+function colorify(text, color)
+    return '<span color="'..color..'">'..text..'</span>'
+end
+
 memory_widget = widget({ type = "textbox" })
-vicious.register(memory_widget, vicious.widgets.mem, " $2 M ", 3)
+vicious.register(memory_widget, vicious.widgets.mem, 
+    function (widget, args)
+        color = color_predicate(args[1], 50, 80)
+        return '[ '..colorify(args[2]..' mb', color)..' ]' 
+    end
+    , 3)
 
 uptime_widget = widget({ type = "textbox" })
-vicious.register(uptime_widget, vicious.widgets.uptime, " Up $2 hr ", 52)
+vicious.register(uptime_widget, vicious.widgets.uptime,
+    function (widget, args)
+        if args[2] > 4 then
+            ut = 'up '..args[2]..' hours'
+        else
+            ut = 'up '..args[3]..' min'
+        end
+        return '[ '..colorify(ut, 'white')..' ]' 
+    end, 52)
 
 package_widget = widget({ type = "textbox" })
-vicious.register(package_widget, vicious.widgets.pkg, " $1 Upgrades ", 14, "Arch")
+vicious.register(package_widget, vicious.widgets.pkg, 
+    function (widget, args)
+        if args[1] > 0 then
+            pkgs = args[1]..' upgrades'
+        else
+            pkgs = "no upgrades"
+        end
+        color = color_predicate(args[1], 10, 20)
+        return '[ '..colorify(pkgs, color)..' ]'
+    end, 14, "Arch")
 
 cpu_widget = widget({ type = "textbox" })
-vicious.register(cpu_widget, vicious.widgets.cpu, " CPU: $1 ", 2)
+vicious.register(cpu_widget, vicious.widgets.cpu, 
+    function (widget, args)
+        str = string.format("cpu %.2d", args[1])
+        color = color_predicate(args[1], 75, 90)
+        return '[ '..colorify(str, color)..' ]'
+    end, 2)
+
+date_widget = widget({ type = "textbox" })
+vicious.register(date_widget, vicious.widgets.date, colorify("[ %H:%M %m/%d ]", 'white'), 7)
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -93,6 +142,7 @@ for s = 1, screen.count() do
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
+        date_widget,
         mysystray,
         cpu_widget,
         package_widget,
@@ -244,13 +294,10 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
-    { rule = { class = "pinentry" },
-      properties = { floating = true } },
+    { rule = { class = "firefox" },
+      properties = { tag = tags[1][2] } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
 }
 -- }}}
 
