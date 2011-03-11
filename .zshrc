@@ -9,7 +9,7 @@ EDITOR="vim"
 bindkey -v # not needed, but just in case!
 
 # add local bin
-PATH=PATH:~/bin
+PATH=$PATH:~/bin
 
 #History
 HISTFILE=~/.zhistory
@@ -22,7 +22,6 @@ unsetopt histsavenodups
 setopt histexpiredupsfirst
 
 autoload -U compinit
-compinit
 
 #Cache completions
 zstyle ':completion:*' use-cache on
