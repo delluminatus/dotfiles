@@ -115,6 +115,11 @@ vicious.register(cpu_widget, vicious.widgets.cpu,
 date_widget = widget({ type = "textbox" })
 vicious.register(date_widget, vicious.widgets.date, colorify("[ %H:%M %m/%d ]", 'white'), 7)
 
+bracket_open = widget({ type = "textbox" })
+bracket_open.text = '[ '
+bracket_close = widget({ type = "textbox" })
+bracket_close.text = ' ]'
+
 -- Create a systray
 mysystray = widget({ type = "systray" })
 -- }}}
@@ -142,8 +147,8 @@ for s = 1, screen.count() do
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
-        date_widget,
-        mysystray,
+        date_widget, bracket_close,
+        mysystray, bracket_open, 
         cpu_widget,
         package_widget,
         memory_widget,
