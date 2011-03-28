@@ -1,5 +1,21 @@
+" vundle config
+set rtp+=~/.vim/vundle/
+call vundle#rc()
+
 filetype off
-call pathogen#runtime_append_all_bundles()
+
+" Bundle to be used
+" Sandwich between two filetype declarations
+" for compatibility
+
+Bundle "ervandew/supertab"
+Bundle "rstacruz/sparkup"
+Bundle "scrooloose/nerdcommenter"
+Bundle "mineiro/vim-latex"
+Bundle "https://github.com/vim-scripts/Rainbow-Parenthsis-Bundle.git"
+" end bundles
+
+
 filetype plugin indent on
 syntax on
 set nocompatible
