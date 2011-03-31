@@ -16,14 +16,12 @@ Bundle "https://github.com/vim-scripts/Rainbow-Parenthsis-Bundle.git"
 Bundle "msanders/snipmate.vim"
 Bundle "tpope/vim-surround"
 Bundle "nathanaelkane/vim-indent-guides"
+Bundle "thinca/vim-guicolorscheme"
 
 " Themes
 Bundle "nanotech/jellybeans.vim"
-Bundle "wgibbs/vim-irblack"
+Bundle "delluminatus/vim-irblack"
 Bundle "https://github.com/vim-scripts/Zenburn.git"
-
-" end bundles
-
 filetype plugin indent on
 syntax on
 set nocompatible
@@ -31,6 +29,10 @@ colorscheme ir_black
 " Modelines might have exploits?
 set modelines=0
 
+" Indent guide configuration
+let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,ColorScheme * :hi IndentGuidesOdd guibg=red ctermbg=darkgrey
+"autocmd VimEnter,ColorScheme * :hi IndentGuidesOdd guibg=black ctermbg=black
 " Tab configuration
 set tabstop=4
 set shiftwidth=4
