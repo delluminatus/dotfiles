@@ -13,12 +13,21 @@ Bundle "rstacruz/sparkup"
 Bundle "scrooloose/nerdcommenter"
 Bundle "mineiro/vim-latex"
 Bundle "https://github.com/vim-scripts/Rainbow-Parenthsis-Bundle.git"
-" end bundles
+Bundle "msanders/snipmate.vim"
+Bundle "tpope/vim-surround"
+Bundle "nathanaelkane/vim-indent-guides"
 
+" Themes
+Bundle "nanotech/jellybeans.vim"
+Bundle "wgibbs/vim-irblack"
+Bundle "https://github.com/vim-scripts/Zenburn.git"
+
+" end bundles
 
 filetype plugin indent on
 syntax on
 set nocompatible
+colorscheme ir_black
 " Modelines might have exploits?
 set modelines=0
 
@@ -126,3 +135,4 @@ set rnu
 
 " Enable undo file (persistent undo across sessions)
 set undofile
+
