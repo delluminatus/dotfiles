@@ -22,10 +22,16 @@ Bundle "thinca/vim-guicolorscheme"
 Bundle "nanotech/jellybeans.vim"
 Bundle "delluminatus/vim-irblack"
 Bundle "https://github.com/vim-scripts/Zenburn.git"
+Bundle "altercation/vim-colors-solarized"
+
 filetype plugin indent on
 syntax on
 set nocompatible
-colorscheme ir_black
+
+set background=dark
+let g:solarized_termcolors=16
+colorscheme solarized
+
 " Modelines might have exploits?
 set modelines=0
                     
